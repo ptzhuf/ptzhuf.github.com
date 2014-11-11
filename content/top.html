@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://web.7192.com/m101405/top.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+	
+	<link href="http://web.7192.com/m101405/favicon.ico" rel="shortcut icon">
+	<title>电子请柬</title>
+	<style type="text/css">
+	body{margin:0;padding:0}
+	div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,hr,pre,form,fieldset,input,textarea,blockquote,p{padding:0;margin:0}
+	hr{margin:0 auto}
+	table,td,tr,th{font-size:12px}
+	li{list-style-type:none}
+	img{border:0;cursor:pointer}
+	ol,ul{list-style:none}
+
+    #topbar { height:55px;overflow:hidden;background:#f7f7f7 url('top_bg.jpg') repeat-x bottom}
+    .smenu { float:left;width:390px;height:44px;margin-left:60px;text-align:center;line-height:40px;background:url('eicmenubg.jpg') no-repeat center center;}
+    .smenu a { text-decoration:none;color:#fff;font-size:12px;margin:0 5px;}
+    .uarea {float:right;margin-top:15px;font-size:12px;color:#c30;}
+    .uarea a { color:#c30;text-decoration:none;cursor:pointer;}
+    .uarea a:hover { color:#c30;text-decoration:underline;}
+	#logo{float:left;height:53px;width:210px;overflow:hidden;padding-right:10px}
+	#logo img{float:left}
+	#logo a{font:bolder 16px/53px Arial;color:#006ED6;text-decoration:none;float:right}
+	#top_ad{width:400px;height:40px;float:right;background:#ddd;margin-top:6px}
+	#top_ad img{width:400px;height:40px;overflow:hidden}
+	#top_ad span{position:absolute;font:bolder 12px/20px Arial;color:#f90;top:0;left:-54px;cursor:pointer}
+	#ei_music_area{width:220px;height:20px;overflow:hidden;float:left;margin-top:12px}
+	#ei_music_area a{font:bolder 12px/20px Arial;color:#f90;cursor:pointer}
+	#ei_music_area #my_player{width:60px;height:20px;overflow:hidden;float:left}
+    </style>
+</head>
+<body>
+<div id="topbar">
+	<div style="width:990px;margin:0 auto;">
+		<div id="logo">
+			<a href="http://qingjian.7192.com/" style="float:left;width:140px;overflow:hidden" title="全影请柬" target="_blank"><img src="110506756.jpg" height="53px"></a>
+			<a href="http://qingjian.7192.com/" title="全影请柬请柬列表" target="_blank">进入网站</a>
+		</div>
+		<table id="ei_music_area">
+			<tbody><tr>
+				<td>
+					<div id="my_player">
+						<iframe src="music.html" width="200" height="20" scrolling="no" frameborder="0" id="music_box"></iframe> 
+					</div>
+				</td>
+			</tr>
+		</tbody></table>
+					<div id="top_ad"><a href="http://qingjian.7192.com/" title="全影请柬" target="_blank"><img src="ad.jpg" alt="全影请柬"></a></div>
+				<script type="text/javascript">
+			function listen(url){
+				document.getElementById('music_box').setAttribute('src',url);
+			}
+		</script>
+		<script type="text/javascript">
+			function get_music_sta(){
+				var url=document.getElementById('music_box').getAttribute('src');
+				if (url=='music.html?url=stop'){
+					return 2;
+				}else{
+					return 1;
+				}
+			}
+		</script>
+	</div>
+</div>
+
+</body></html>
