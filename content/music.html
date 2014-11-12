@@ -15,7 +15,7 @@ body {
 <script type="text/javascript">
 	var locationSearch = location.search;
 	if (locationSearch == "?url=stop") {
-		document.body.object.param[1].value = "mp3=zy-gnm.mp3&amp;autostart=false&amp;autoreplay=true";
+		document.getElementsByName("flashvars")[0].value = "mp3=zy-gnm.mp3&amp;autostart=false&amp;autoreplay=true";
 	}
 </script>
 </head>
