@@ -12,12 +12,7 @@ body {
 	padding: 0
 }
 </style>
-<script type="text/javascript">
-	var locationSearch = location.search;
-	if (locationSearch == "?url=stop") {
-		document.getElementsByName("flashvars")[0].value = "mp3=zy-gnm.mp3&amp;autostart=false&amp;autoreplay=true";
-	}
-</script>
+
 </head>
 <body>
 	<object type="application/x-shockwave-flash" data="dewplayer.swf"
@@ -30,6 +25,11 @@ body {
 			wmode="transparent"
 			src="mp3=zy-gnm.mp3&amp;autostart=true&amp;autoreplay=true" />
 	</object>
-
+	<script type="text/javascript">
+		var locationSearch = location.search;
+		if (locationSearch == "?url=stop") {
+			document.getElementsByName("flashvars")[0].value = "mp3=zy-gnm.mp3&amp;autostart=false&amp;autoreplay=true";
+		}
+	</script>
 </body>
 </html>
