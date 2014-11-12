@@ -160,68 +160,88 @@ input#top_bar_open {
 }
 </style>
 <script type="text/javascript">
-	(function (config) {config['lock'] = false;config['opacity']=0.2;config['fixed'] = false;config['okVal'] = '确定';config['cancelVal'] = '取消';config['height'] = 'auto';})(art.dialog.defaults);
+	(function(config) {
+		config['lock'] = false;
+		config['opacity'] = 0.2;
+		config['fixed'] = false;
+		config['okVal'] = '确定';
+		config['cancelVal'] = '取消';
+		config['height'] = 'auto';
+	})(art.dialog.defaults);
 
-	window.onload=function(){
+	window.onload = function() {
 		sync_music_sta();
-		$('#baidu_share_area').html('<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"  data="{\'url\':\'http://ptzhuf.github.io/\'}" ><a class="bds_qzone"></a><a class="bds_tsina"></a><a class="bds_tqq"></a><a class="bds_renren"></a><span class="bds_clc"><span class="bds_more">&nbsp;</span></span></div>分享');
-		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
-		$('.bds_clc').hover(function(){return false;});
+		$('#baidu_share_area')
+				.html(
+						'<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"  data="{\'url\':\'http://ptzhuf.github.io/\'}" ><a class="bds_qzone"></a><a class="bds_tsina"></a><a class="bds_tqq"></a><a class="bds_renren"></a><span class="bds_clc"><span class="bds_more">&nbsp;</span></span></div>分享');
+		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion="
+				+ new Date().getHours();
+		$('.bds_clc').hover(function() {
+			return false;
+		});
 	}
-	function sync_music_sta(){
-		var music_sta=window.parent.frames['tops'].get_music_sta();
-		if (music_sta==2){
-			$('#music_swf').attr('title','播放音乐').css('backgroundPosition','-50px -5px');
+	function sync_music_sta() {
+		var music_sta = window.parent.frames['tops'].get_music_sta();
+		if (music_sta == 2) {
+			$('#music_swf').attr('title', '播放音乐').css('backgroundPosition',
+					'-50px -5px');
 		}
 	}
-	function show_area(url,tit,width,mark,height,rtn){
-		if(url.indexOf('?')== -1){
-			url+='?_t='+Math.random();
-		}else{
-			url+='&_t='+Math.random();
+	function show_area(url, tit, width, mark, height, rtn) {
+		if (url.indexOf('?') == -1) {
+			url += '?_t=' + Math.random();
+		} else {
+			url += '&_t=' + Math.random();
 		}
-		if (mark==3){
-			art.dialog.open(url, {id:'msg',title: tit,'width': width,fixed:false,
-				ok: function () {
-						var iframe = this.iframe.contentWindow;
-						if (!iframe.document.body) {
-							alert('iframe还没加载完毕呢')
-							return false;
-						};
-						var form = iframe.form_sub();
+		if (mark == 3) {
+			art.dialog.open(url, {
+				id : 'msg',
+				title : tit,
+				'width' : width,
+				fixed : false,
+				ok : function() {
+					var iframe = this.iframe.contentWindow;
+					if (!iframe.document.body) {
+						alert('iframe还没加载完毕呢')
 						return false;
+					}
+					;
+					var form = iframe.form_sub();
+					return false;
 				},
-				okVal:'提交',
-				cancel: true
+				okVal : '提交',
+				cancel : true
 			});
-		}else{
+		} else {
 			var op = {
-				id:'msg',
-				title: tit,
-				width: width,
-				zIndex:999999
+				id : 'msg',
+				title : tit,
+				width : width,
+				zIndex : 999999
 			};
-			if(typeof(height)!='undefined'){
+			if (typeof (height) != 'undefined') {
 				op['height'] = height;
 			}
-			if(typeof(rtn)!='undefined'){
-				var func=rtn+"()";
-				op['close'] =function () { return eval(func); };
+			if (typeof (rtn) != 'undefined') {
+				var func = rtn + "()";
+				op['close'] = function() {
+					return eval(func);
+				};
 			}
-			if(mark==2){
+			if (mark == 2) {
 				op['fixed'] = false;
 			}
 			art.dialog.open(url, op);
 		}
 	}
-	function re_load(){
+	function re_load() {
 		window.top.location.reload(true);
 	}
-	function listen(url){
-		if (typeof(window.parent.frames['tops'])!='undefined'){
+	function listen(url) {
+		if (typeof (window.parent.frames['tops']) != 'undefined') {
 			window.parent.frames['tops'].listen(url);
-		}else{
-			window.top.location='/m101405';
+		} else {
+			window.top.location = '/m101405';
 		}
 	}
 </script>
@@ -1921,7 +1941,8 @@ div.BMap_cmLstItem {
 				<ul>
 				</ul>
 				<p>
-					<a href="http://ptzhuf.github.io/content/main.html#" class="goWebsite">百度分享</a>
+					<a href="http://ptzhuf.github.io/content/main.html#"
+						class="goWebsite">百度分享</a>
 				</p>
 			</div>
 		</div>
@@ -1959,30 +1980,38 @@ div.BMap_cmLstItem {
 			onclick="switch_music(this)"></div>
 		<!-- <div id="ewm_area"></div> -->
 		<script type="text/javascript">
-		$(function(){
-			$('#ewm_area').hover(function(){
-				art.dialog({
-					'id':'ewm_dialog',
-					'title':'扫描访问手机版(支持微信)',
-					'content':'<img src="http://rftsc.sinaapp.com/ewm.php?url=m.web.7192.com/m101405"/>',
-					'follow':document.getElementById('ewm_area')
-				});
-			},function(){
-				art.dialog({id: 'ewm_dialog'}).close();
+			$(function() {
+				$('#ewm_area')
+						.hover(
+								function() {
+									art
+											.dialog({
+												'id' : 'ewm_dialog',
+												'title' : '扫描访问手机版(支持微信)',
+												'content' : '<img src="http://rftsc.sinaapp.com/ewm.php?url=m.web.7192.com/m101405"/>',
+												'follow' : document
+														.getElementById('ewm_area')
+											});
+								}, function() {
+									art.dialog({
+										id : 'ewm_dialog'
+									}).close();
+								});
 			});
-		});
-		function switch_music(i){
-			var e=$(i);
-			var rel=e.attr('title');
-			if (rel=='关闭音乐'){
-				listen('music.html?url=stop');
-				e.attr('title','播放音乐').css('backgroundPosition','-50px -5px');
-			}else{
-				listen('music.html');
-				e.attr('title','关闭音乐').css('backgroundPosition','-6px -5px');
+			function switch_music(i) {
+				var e = $(i);
+				var rel = e.attr('title');
+				if (rel == '关闭音乐') {
+					listen('music.html?url=stop');
+					e.attr('title', '播放音乐').css('backgroundPosition',
+							'-50px -5px');
+				} else {
+					listen('music.html');
+					e.attr('title', '关闭音乐').css('backgroundPosition',
+							'-6px -5px');
+				}
 			}
-		}
-	</script>
+		</script>
 		<script type="text/javascript" id="bdshare_js"
 			data="type=tools&amp;uid=594902" src="bds_s_v2.js"></script>
 
@@ -2005,39 +2034,42 @@ div.BMap_cmLstItem {
 	<input type="button" class="top_bar_btn" id="top_bar_open"
 		onclick="top_bar_sta(2)" style="display: none">
 	<script type="text/javascript">
-function top_bar_sta(sta){
-	if (sta==1){
-		$('#ei_top_Area').animate({'top':'-47px'},'slow','swing',function(){
-			$('#top_bar_open').show();
-		});
-	}else{
-		$('#top_bar_open').hide();
-		$('#ei_top_Area').animate({'top':0});
-	}
-}
-
-$(function(){
-	var org_html=$('#time_go').html();
-	var timeShow = function(){
-		var T =1415332800;
-		var nowT = Date.parse(new Date())/1000;
-		var C = T-nowT;
-		if( C >= 0 ){
-			var D =Math.floor(C/86400);
-			C=(C-D*86400);
-			var H = Math.floor(C/3600);
-			var M = Math.floor((C-H*3600)/60);
-			var S = C-H*3600-M*60;
-			$('#time_go').html(D+'天'+H+'小时'+M+'分'+S+'秒');
-		}else{
-			$('#time_go').html(org_html);
-			clearInterval(time_go);
+		function top_bar_sta(sta) {
+			if (sta == 1) {
+				$('#ei_top_Area').animate({
+					'top' : '-47px'
+				}, 'slow', 'swing', function() {
+					$('#top_bar_open').show();
+				});
+			} else {
+				$('#top_bar_open').hide();
+				$('#ei_top_Area').animate({
+					'top' : 0
+				});
+			}
 		}
-	}
-	var time_go=setInterval(timeShow,1000);
-});
 
-</script>
+		$(function() {
+			var org_html = $('#time_go').html();
+			var timeShow = function() {
+				var T = 1415332800;
+				var nowT = Date.parse(new Date()) / 1000;
+				var C = T - nowT;
+				if (C >= 0) {
+					var D = Math.floor(C / 86400);
+					C = (C - D * 86400);
+					var H = Math.floor(C / 3600);
+					var M = Math.floor((C - H * 3600) / 60);
+					var S = C - H * 3600 - M * 60;
+					$('#time_go').html(D + '天' + H + '小时' + M + '分' + S + '秒');
+				} else {
+					$('#time_go').html(org_html);
+					clearInterval(time_go);
+				}
+			}
+			var time_go = setInterval(timeShow, 1000);
+		});
+	</script>
 	<div class="page_spinner" style="display: none"></div>
 	<div class="main">
 		<div class="centerHolder">
@@ -2260,43 +2292,46 @@ $(function(){
 						</ul>
 					</div>
 					<script type="text/javascript">
-											
-						function change_style(e){
-							var tar=$(e).val();
-							if (tar!=0){
-								window.location.href="photo.html?view="+tar;
+						function change_style(e) {
+							var tar = $(e).val();
+							if (tar != 0) {
+								window.location.href = "photo.html?view=" + tar;
 							}
 						}
-						function man_photo(){
-							art.dialog.open('/m110337/up.html',{
-								id:'manphoto',
+						function man_photo() {
+							art.dialog.open('/m110337/up.html', {
+								id : 'manphoto',
 								zIndex : 9999,
 								title : '管理相片',
 								width : '800px',
 								height : '400px'
 							});
 						}
-						function save_style(){
-							var sty=$('#change_style').val();
-							if (sty!=0){
-								$.ajax({
-									'type':'post',
-									'url':'/s/eic/main_bgz.php',
-									'data':{'act':'style','sty':sty,'qyuid':110337},
-									success:function(d){
-										if (d=='1'){
-											art.dialog.tips('设置成功！');
-											window.location.href="photo.html";
-										}else if (d=='2'){
-											window.location.href="photo.html";
-										}else{
-											art.dialog.alert(d);
-										}
-									}
-								});
+						function save_style() {
+							var sty = $('#change_style').val();
+							if (sty != 0) {
+								$
+										.ajax({
+											'type' : 'post',
+											'url' : '/s/eic/main_bgz.php',
+											'data' : {
+												'act' : 'style',
+												'sty' : sty,
+												'qyuid' : 110337
+											},
+											success : function(d) {
+												if (d == '1') {
+													art.dialog.tips('设置成功！');
+													window.location.href = "photo.html";
+												} else if (d == '2') {
+													window.location.href = "photo.html";
+												} else {
+													art.dialog.alert(d);
+												}
+											}
+										});
 							}
 						}
-
 					</script>
 					<div id="page_staff" class="xc_div">
 						<h1>婚礼地点</h1>
@@ -2614,34 +2649,59 @@ $(function(){
 						<script type="text/javascript" src="getscript"></script>
 						<input type="hidden" id="mapdata" value="119.337618,26.080652,18">
 						<script type="text/javascript">
-									var map = new BMap.Map("cont_img"),mkr=null;
-									var point = new BMap.Point(119.337618, 26.080652);
-									map.addControl(new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_LEFT}));
-									map.enableScrollWheelZoom();
-									map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_LEFT, offset: new BMap.Size(10, 60)}));
-									map.centerAndZoom(point, 18);
-									var sContent ="<div class=\"hotelinfo\">" + 
-						"<p>新郎电话：18650366687</p>" + 
-									"<p>地址：国惠大酒楼</p>" + 
-									"<p>地图导航：<a target='_blank' href='http://map.baidu.com/?latlng=26.080652,119.337618&title=%E5%9B%BD%E6%83%A0%E5%A4%A7%E9%85%92%E6%A5%BC&content=%E5%9B%BD%E6%83%A0%E5%A4%A7%E9%85%92%E6%A5%BC&autoOpen=true&l' title='点击进入导航界面' style='color:#36f'>点击进入导航界面&gt;&gt;</a></p></div>";
-									var marker = new BMap.Marker(point);
-									var infoWindow = new BMap.InfoWindow(sContent);
-									map.addOverlay(marker);
-									marker.openInfoWindow(infoWindow);
-									marker.addEventListener("click", function(){
-										this.openInfoWindow(infoWindow);
-										document.getElementById('main_area').onload = function (){
-											infoWindow.redraw();
-										}
-									});
-									map.addEventListener("zoomend", function(){
-										map.setCenter(marker.point);
-									}); 
-								</script>
+							var map = new BMap.Map("cont_img"), mkr = null;
+							var point = new BMap.Point(119.337618, 26.080652);
+							map.addControl(new BMap.MapTypeControl({
+								anchor : BMAP_ANCHOR_TOP_LEFT
+							}));
+							map.enableScrollWheelZoom();
+							map.addControl(new BMap.NavigationControl({
+								anchor : BMAP_ANCHOR_TOP_LEFT,
+								offset : new BMap.Size(10, 60)
+							}));
+							map.centerAndZoom(point, 18);
+							var sContent = "<div class=\"hotelinfo\">"
+									+ "<p>新郎电话：18650366687</p>"
+									+ "<p>地址：国惠大酒楼</p>"
+									+ "<p>地图导航：<a target='_blank' href='http://map.baidu.com/?latlng=26.080652,119.337618&title=%E5%9B%BD%E6%83%A0%E5%A4%A7%E9%85%92%E6%A5%BC&content=%E5%9B%BD%E6%83%A0%E5%A4%A7%E9%85%92%E6%A5%BC&autoOpen=true&l' title='点击进入导航界面' style='color:#36f'>点击进入导航界面&gt;&gt;</a></p></div>";
+							var marker = new BMap.Marker(point);
+							var infoWindow = new BMap.InfoWindow(sContent);
+							map.addOverlay(marker);
+							marker.openInfoWindow(infoWindow);
+							marker
+									.addEventListener(
+											"click",
+											function() {
+												this.openInfoWindow(infoWindow);
+												document
+														.getElementById('main_area').onload = function() {
+													infoWindow.redraw();
+												}
+											});
+							map.addEventListener("zoomend", function() {
+								map.setCenter(marker.point);
+							});
+						</script>
 					</div>
 					<div id="hzly" class="xc_div">
-						<h1>回执留言</h1>
-						<form action="main.html#" id="ContactForm">
+						<!--高速版，加载速度快，使用前需测试页面的兼容性-->
+						<div id="SOHUCS"></div>
+						<script>
+						  (function(){
+						    var appid = 'cyqhJjqPA',
+						    conf = 'prod_bac9162b47c56fc8a4d2a519803d51b3';
+						    var doc = document,
+						    s = doc.createElement('script'),
+						    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+						    s.type = 'text/javascript';
+						    s.charset = 'utf-8';
+						    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+						    h.insertBefore(s,h.firstChild);
+						    window.SCS_NO_IFRAME = true;
+						  })()
+						</script>                
+
+						<!-- <form action="main.html#" id="ContactForm">
 							<table cellpadding="3">
 								<tbody>
 									<tr>
@@ -2724,22 +2784,26 @@ $(function(){
 								<a class="disabled">上一页</a><strong>1/2</strong><a
 									href="javascript:get_wall(2)">下一页</a>
 							</div>
-						</div>
+						</div> -->
 						<script type="text/javascript">
-	function get_wall(p){
-		if (p>0){
-			var offset=5;
-			$.ajax({
-				type:'post',
-				url:'/s/eic/getwall.php',
-				data:{'u':'101405','page':p,'offset':offset},
-				success:function(d){
-					$('#msg_area').html(d);
-				}
-			});
-		}
-	}
-</script>
+							function get_wall(p) {
+								if (p > 0) {
+									var offset = 5;
+									$.ajax({
+										type : 'post',
+										url : '/s/eic/getwall.php',
+										data : {
+											'u' : '101405',
+											'page' : p,
+											'offset' : offset
+										},
+										success : function(d) {
+											$('#msg_area').html(d);
+										}
+									});
+								}
+							}
+						</script>
 					</div>
 				</div>
 			</div>
@@ -2771,128 +2835,172 @@ $(function(){
 </style>
 	<script type="text/javascript" src="tween.js"></script>
 	<script type="text/javascript">
-$(function (){
-	var biz_name = '';
-	var biz_url = '';
-	$("#photo_area a[rel^='prettyPhoto']").prettyPhoto({social_tools:'<a href="' + biz_url + '" target="_blank" style="font-size:12px;color:white">' + biz_name + '</a>',animation_speed:'normal',theme:'dark_square',slideshow:5000, autoplay_slideshow: false});
-});
-	$(window).load(function(){
-		$('#menu li').animate({'marginLeft':0,'padding-right':'5px'},1500);
-		$('.con_title').animate({'marginRight':0},1500);
-	});
-	$('#menu li').hover(function(){
-		$(this).find('.extraHolder').clearQueue().animate({'height':'230px','top':'356px'},300);
-	},function(){$(this).find('.extraHolder').clearQueue().animate({'height':'200px','top':'386px'},300);});
-	
-	$('#menu li').click(function(){
-		var id = $(this).attr('id'); 
-		if (id=="face")
-		{
-			window.location.reload();
-		}else{
-		var t = $(this).attr('rel');
-		var r = $(this).attr('name');
-		$('#menu').hide();
-		$('#page_about').show();
-		$('#menu_list').animate({'marginRight':0},150);
-		$('#'+t).clearQueue().animate({'height':'130px'});
-		$('#'+r).animate({'top':'0','left':'0'},'slow');
-		}
-	});
-	$('#menu_list li').click(function(){
-		var tt = $(this).attr('rel');
-		var id = $(this).attr('id');
-		if (id=="fhfm"){
-			window.location.reload();
-		}else{
-			$('#menu').hide();
-			$(".xc_div").clearQueue().css({'left':'200%'});
-			$("#"+tt).clearQueue().animate({'top':'0','left':'0px'},'slow');
-		} 
-	});
-	$('#menu_list li').mouseover(function(){
-		$('#menu_list li').animate({'height':'112px'});
-		$(this).clearQueue().animate({'height':'130px'});
-		
-	});
-	$('#menu_list li').mouseout(function(){
-		$(this).clearQueue().animate({'height':'112px'});
-		//$('#menu_list li').animate({'heihgt':'112px'});
-	});
-	
-</script>
-	<script type="text/javascript">
-function str_trim(str){ 
-    return str.replace(/(^\s*)|(\s*$)/g, "");
-}
-$(function (){
-	$('#bi_name').focus(function (){
-		$(this).val('');
-	});
-	$('#bi_info').focus(function (){
-		$(this).val('');
-	});
-	$('#btn_backinfo').click(function (){
-		var name = $('#bi_name').val();
-		var num = $('#wall_num').val();
-		var info = $('#bi_info').val();
-		name = str_trim(name);
-		info = str_trim(info);
-		var isgo = true;
-		var go_is = $('#bi_go_is').attr('checked');
-		var go_not = $('#bi_go_not').attr('checked');
-		if(name == '您的姓名:' || name == ''){
-			art.dialog.alert('请填写姓名');
-			$('#bi_name').val('');
-			return;
-		}
-		if(info == '您的留言:' || info == ''){
-			art.dialog.alert('请填写留言');
-			$('#bi_info').val('');
-			return;
-		}
-		if(go_is){
-			isgo = 1; //去
-		}else{
-			isgo = 0; //不去
-		}
-		
-		var isneedroom = 0;
-		var needroom_is = $('#bi_needroom_is').attr('checked');
-		if(needroom_is){
-			isneedroom = 1;
-		}
-		
-		var isneedcar = 0;
-		var needcar_is = $('#bi_needcar_is').attr('checked');
-		if(needcar_is){
-			isneedcar = 1;
-		}		
-		 $.ajax({
-			'type':'post',
-			'url':'/s/eic/bg_post.php',
-			'data':{'act':'words','send':name,'content':info,'num':num,'zid':101405},
-			success:function(d){
-				if (d=='1'){
-					$.dialog.tips('<p class="tips_12_g">发布成功</p>');
-					get_wall(1);
-				}else if(d=='2'){
-				}else{
-					$.dialog.alert(d);
-				}
+		$(function() {
+			var biz_name = '';
+			var biz_url = '';
+			$("#photo_area a[rel^='prettyPhoto']")
+					.prettyPhoto(
+							{
+								social_tools : '<a href="' + biz_url + '" target="_blank" style="font-size:12px;color:white">'
+										+ biz_name + '</a>',
+								animation_speed : 'normal',
+								theme : 'dark_square',
+								slideshow : 5000,
+								autoplay_slideshow : false
+							});
+		});
+		$(window).load(function() {
+			$('#menu li').animate({
+				'marginLeft' : 0,
+				'padding-right' : '5px'
+			}, 1500);
+			$('.con_title').animate({
+				'marginRight' : 0
+			}, 1500);
+		});
+		$('#menu li').hover(function() {
+			$(this).find('.extraHolder').clearQueue().animate({
+				'height' : '230px',
+				'top' : '356px'
+			}, 300);
+		}, function() {
+			$(this).find('.extraHolder').clearQueue().animate({
+				'height' : '200px',
+				'top' : '386px'
+			}, 300);
+		});
+
+		$('#menu li').click(function() {
+			var id = $(this).attr('id');
+			if (id == "face") {
+				window.location.reload();
+			} else {
+				var t = $(this).attr('rel');
+				var r = $(this).attr('name');
+				$('#menu').hide();
+				$('#page_about').show();
+				$('#menu_list').animate({
+					'marginRight' : 0
+				}, 150);
+				$('#' + t).clearQueue().animate({
+					'height' : '130px'
+				});
+				$('#' + r).animate({
+					'top' : '0',
+					'left' : '0'
+				}, 'slow');
 			}
-		 });
-	});
-});
-</script>
+		});
+		$('#menu_list li').click(function() {
+			var tt = $(this).attr('rel');
+			var id = $(this).attr('id');
+			if (id == "fhfm") {
+				window.location.reload();
+			} else {
+				$('#menu').hide();
+				$(".xc_div").clearQueue().css({
+					'left' : '200%'
+				});
+				$("#" + tt).clearQueue().animate({
+					'top' : '0',
+					'left' : '0px'
+				}, 'slow');
+			}
+		});
+		$('#menu_list li').mouseover(function() {
+			$('#menu_list li').animate({
+				'height' : '112px'
+			});
+			$(this).clearQueue().animate({
+				'height' : '130px'
+			});
+
+		});
+		$('#menu_list li').mouseout(function() {
+			$(this).clearQueue().animate({
+				'height' : '112px'
+			});
+			//$('#menu_list li').animate({'heihgt':'112px'});
+		});
+	</script>
 	<script type="text/javascript">
-	function show_video_play(){
-		$('#mv_play_area').html($('#mv_play_area_infos').val()).show();
-	}
-	function close_video(){
-		$('#mv_play_area').hide().html('');
-	}
-</script>
+		function str_trim(str) {
+			return str.replace(/(^\s*)|(\s*$)/g, "");
+		}
+		$(function() {
+			$('#bi_name').focus(function() {
+				$(this).val('');
+			});
+			$('#bi_info').focus(function() {
+				$(this).val('');
+			});
+			$('#btn_backinfo').click(function() {
+				var name = $('#bi_name').val();
+				var num = $('#wall_num').val();
+				var info = $('#bi_info').val();
+				name = str_trim(name);
+				info = str_trim(info);
+				var isgo = true;
+				var go_is = $('#bi_go_is').attr('checked');
+				var go_not = $('#bi_go_not').attr('checked');
+				if (name == '您的姓名:' || name == '') {
+					art.dialog.alert('请填写姓名');
+					$('#bi_name').val('');
+					return;
+				}
+				if (info == '您的留言:' || info == '') {
+					art.dialog.alert('请填写留言');
+					$('#bi_info').val('');
+					return;
+				}
+				if (go_is) {
+					isgo = 1; //去
+				} else {
+					isgo = 0; //不去
+				}
+
+				var isneedroom = 0;
+				var needroom_is = $('#bi_needroom_is').attr('checked');
+				if (needroom_is) {
+					isneedroom = 1;
+				}
+
+				var isneedcar = 0;
+				var needcar_is = $('#bi_needcar_is').attr('checked');
+				if (needcar_is) {
+					isneedcar = 1;
+				}
+				$.ajax({
+					'type' : 'post',
+					'url' : '/s/eic/bg_post.php',
+					'data' : {
+						'act' : 'words',
+						'send' : name,
+						'content' : info,
+						'num' : num,
+						'zid' : 101405
+					},
+					success : function(d) {
+						if (d == '1') {
+							$.dialog.tips('<p class="tips_12_g">发布成功</p>');
+							get_wall(1);
+						} else if (d == '2') {
+						} else {
+							$.dialog.alert(d);
+						}
+					}
+				});
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		function show_video_play() {
+			$('#mv_play_area').html($('#mv_play_area_infos').val()).show();
+		}
+		function close_video() {
+			$('#mv_play_area').hide().html('');
+		}
+	</script>
 	<!--兼容ie6中png透明问题-->
 	<!--[if IE 6]>
 <script type="text/javascript" src="/js/fixpng.js"></script>
@@ -2903,9 +3011,13 @@ $(function (){
 	<!--兼容ie6中png透明问题-->
 	<div style="display: none;">
 		<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F90efdb6ebc5fe05a5b89bffa62546d14' type='text/javascript'%3E%3C/script%3E"));
-</script>
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://"
+					: " http://");
+			document
+					.write(unescape("%3Cscript src='"
+							+ _bdhmProtocol
+							+ "hm.baidu.com/h.js%3F90efdb6ebc5fe05a5b89bffa62546d14' type='text/javascript'%3E%3C/script%3E"));
+		</script>
 		<script src="h.js" type="text/javascript"></script>
 		<a
 			href="http://tongji.baidu.com/hm-web/welcome/ico?s=90efdb6ebc5fe05a5b89bffa62546d14"
