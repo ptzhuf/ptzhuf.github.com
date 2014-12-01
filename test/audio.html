@@ -5,6 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<audio src="xjt.mp3" controls="controls"></audio>
+	<audio src="xjt.mp3" id="music" loop="loop"></audio>
+
+	<script type="text/javascript">
+		var locationSearch = location.search;
+		if (locationSearch == "?act=start") {
+			document.getElementById("music").autoplay="autoplay";
+		}
+	</script>
 </body>
 </html>

@@ -2004,11 +2004,11 @@ div.BMap_cmLstItem {
 				var e = $(i);
 				var rel = e.attr('title');
 				if (rel == '关闭音乐') {
-					listen('music.html?url=stop');
+					listen('music.html');
 					e.attr('title', '播放音乐').css('backgroundPosition',
 							'-50px -5px');
 				} else {
-					listen('music.html');
+					listen('music.html?act=start');
 					e.attr('title', '关闭音乐').css('backgroundPosition',
 							'-6px -5px');
 				}
