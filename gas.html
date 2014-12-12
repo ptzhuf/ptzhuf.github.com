@@ -1,0 +1,363 @@
+
+<!-- saved from url=(0088)http://777.nd.com.cn/Group/BBS/Topic.aspx?CliId=413&BoardId=5962&TopicId=111515&PageNo=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        加油卡来啦！【入司驻点】</title>
+    <link href="./加油卡来啦！【入司驻点】_files/Circle.css" type="text/css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./加油卡来啦！【入司驻点】_files/blog01.css" id="mycss">
+    <link href="./加油卡来啦！【入司驻点】_files/common.css" rel="stylesheet" type="text/css">
+
+    <script src="./加油卡来啦！【入司驻点】_files/jquery-1.2.6.js" type="text/javascript"></script>
+
+    <script src="./加油卡来啦！【入司驻点】_files/Selector.js" type="text/javascript"></script>
+
+    <link href="./加油卡来啦！【入司驻点】_files/Main.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .List4 th
+        {
+            border-right: solid 1px #D1E1EF;
+        }
+        .List4 td
+        {
+            border-right: solid 1px #D1E1EF;
+        }
+        .PostBody
+        {
+            font-size: 14px;
+            line-height: 25px;
+        }
+        .PostBody img
+        {
+            max-width: 600px;
+        }
+    </style>
+
+    <script type="text/javascript" language="javascript" src="./加油卡来啦！【入司驻点】_files/popup.js"></script>
+
+    <script type="text/javascript" language="javascript" src="./加油卡来啦！【入司驻点】_files/JsLib.js"></script>
+
+    <script type="text/javascript" language="javascript" src="./加油卡来啦！【入司驻点】_files/BbsCommon.js"></script>
+
+    <script type="text/javascript" language="javascript" src="./加油卡来啦！【入司驻点】_files/BbsVote.js"></script>
+
+    <script type="text/javascript" language="javascript" src="./加油卡来啦！【入司驻点】_files/NdTips.js"></script>
+
+    <script type="text/javascript" language="javascript" src="./加油卡来啦！【入司驻点】_files/Topic.aspx.js"></script>
+
+    <script type="text/javascript" language="javascript" src="./加油卡来啦！【入司驻点】_files/viewthread.js"></script>
+
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+       selectPeo = new NDEA.Selector({ DivID: "divSelectPeo", TypeID: 1, InputDefaultTip: "输入员工姓名(支持全拼输入)",TextIDId:"postInfoIds", TotalSelectNum: 200, CallBackFunction: function(data) { }, QuickBoxPositionX: -405, Width: 180,ShowLeaveUser:true });
+        });
+        
+         jQuery(document).ready(function() {
+       selectPeo1 = new NDEA.Selector({ DivID: "divSelectPeo1", TypeID: 1, InputDefaultTip: "输入员工姓名(支持全拼输入)",TextIDId:"UserIdListForShare", TextNameId: "UserNameListForShare" ,TotalSelectNum: 200, CallBackFunction: function(data) { }, QuickBoxPositionX: -405, Width: 180,ShowLeaveUser:true });
+        });
+        
+         jQuery(document).ready(function() {
+       selectPeo2 = new NDEA.Selector({ DivID: "divSelectPeo2", TypeID: 1, InputDefaultTip: "输入员工姓名(支持全拼输入)",TextIDId:"UserIdListForFeedBack",TextNameId: "UserNameListForFeedBack" , TotalSelectNum: 200, CallBackFunction: function(data) { }, QuickBoxPositionX: -405, Width: 180,ShowLeaveUser:true });
+        });
+        
+       
+        
+    //控制表格最大宽度
+    function SetMaxWidthForTable(id,width1,width2)
+    {
+        try{
+            var TABLES= document.getElementById(id).getElementsByTagName("TABLE");
+            for(var i=0;i<TABLES.length;i++)
+            {
+                if(TABLES[i].style.width.replace("pt","")>width1||TABLES[i].width>width2)
+                {
+                    TABLES[i].style.width=width2+"px";
+                    TABLES[i].width=width2;
+                }
+            }
+            
+            var tables= document.getElementById(id).getElementsByTagName("table");
+            for(var i=0;i<tables.length;i++)
+            {
+                if(tables[i].style.width.replace("pt","")>width1||tables[i].width>width2)
+                {
+                    tables[i].style.width=width2+"px";
+                    tables[i].width=width2;
+                }
+            }
+           var IMG= document.getElementById(id).getElementsByTagName("IMG");
+           for(var i=0;i<IMG.length;i++)
+           {
+               if(IMG[i].width>width2)
+               {
+                   IMG[i].width=width2;
+               }
+           }
+           
+           var img= document.getElementById(id).getElementsByTagName("img");
+           for(var i=0;i<img.length;i++)
+           {
+               if(img[i].width>width2)
+               {
+                   img[i].width=width2;
+               }
+           }
+        }catch(ex){}
+        
+        
+    }
+    
+
+    function deleteFeedback(topicId,userId)
+    {
+        var url="deleteFeedBack.aspx?action=deleteFeedBack&TopicId="+ topicId+"&UserId=" + userId;
+        var objXmlHttp = CreateXmlHttp();
+        SendPostUrl(deleteFeedback_Handle, objXmlHttp, url, "");
+        function deleteFeedback_Handle(arr)
+        {
+            document.execCommand('Refresh') ;
+        }
+    }
+    
+     function setDefaultImg(obj)
+      {
+        if(obj!=null && obj !="undefined")
+            obj.src="http://km.ndea.91.com/upload/photo/head/NoPhoto.gif";
+      }  
+      
+     function addFeedback(topicId,userId)
+     {
+        var url="deleteFeedBack.aspx?action=addFeedBack&TopicId="+ topicId+"&UserId=" + userId;
+        var objXmlHttp = CreateXmlHttp();
+        SendPostUrl(deleteFeedback_Handle, objXmlHttp, url, "");
+        function deleteFeedback_Handle(arr)
+        {
+            document.execCommand('Refresh') ;
+        }
+     }
+    </script>
+
+</head>
+<body class="body" onload="BBS.VoteShow();BBS.SetFocus(&#39;NewTopicTitle&#39;);SetMaxWidthForTable(&#39;PostList&#39;,400,700);">
+    <div class="container">
+        <div id="append_parent">
+        </div>
+        <div id="blogtop">
+            
+ <script language="javascript" type="text/javascript">
+  document.write("<script type='text/javascript' src='/group/Lib/js/playVideo.js'><\/script>");
+  document.write("<script type='text/javascript' src='/group/Lib/js/DivAlert.js'><\/script>");
+ </script><script type="text/javascript" src="./加油卡来啦！【入司驻点】_files/playVideo.js"></script><script type="text/javascript" src="./加油卡来啦！【入司驻点】_files/DivAlert.js"></script>
+<div id="topnav">
+    <div id="Top1_divTopNav"><table class="incheadlogin"><tbody><tr></tr><tr><td align="left" style="padding-left:20px;"> <a href="http://777.nd.com.cn/">首页</a>  <a href="http://ndea.91.com/" target="_blank">EA平台</a>  <a href="http://777.nd.com.cn/College/CourseApply/CourseList.aspx">网龙大学</a>  <a href="http://777.nd.com.cn/Blog/Knowledge.aspx">书房系统</a>  <a href="http://777.nd.com.cn/Ask">不懂就问</a>  <a href="http://777.nd.com.cn/html/WorkCircle.html">工作圈子</a>  <a href="http://777.nd.com.cn/Library/BookInfos.aspx">图书馆</a>  <a href="http://777.nd.com.cn/Search/Index.aspx">ND搜索</a> <a href="http://777.nd.com.cn/mindmap/" style="color:#407ECB">在线思维导图</a><span style="color:red">(新)</span></td><td align="right" style="padding-right:20px;">朱赋，<span id="_MsgNew">欢迎您的到来！</span>&nbsp;<a href="http://777.nd.com.cn/blog/?u=18732">我的书桌</a> <a href="http://777.nd.com.cn/Ask/AskQuestion.aspx"><span style="color:red">我要提问</span></a>&nbsp;<a href="uund://msg/?uin=12580&type=5&from=wLTX1EtN" title="游戏工具部客服"><span style="color:blue">12580</span></a>&nbsp;<a href="http://777.nd.com.cn/ui/Login.aspx?action=logoutbyurl">退出登陆</a></td></tr></tbody></table></div>
+</div>
+<div id="bloghead">
+<div style="position:relative;right:0px;top:0px;">
+	 <div style="position:absolute;right:0px;top:0px;width:110px;height:50px;border:2px solid #b0b0b0;background-color:#ffffbb;">
+             温馨提示：<br>
+            需要帮助吗？<br>点击
+             <a style="color:red;font-size:14px;text-decoration:underline;" href="javascript:;" onclick="playVideo(&#39;圈子帮助视频  请点击播放按钮播放&#39;,&#39;/group/圈子帮助视频.wmv&#39;)">帮助视频</a><br>
+            </div>
+     </div>
+	<div id="blogname">
+	    <div id="Top1_blognameIn" style="line-height:50px;">生活信息交流</div>
+	</div>
+</div>
+<div id="divMenu">
+    <div id="Top1_divMenuIn"><div id="mainMenu"><ul><li><a href="http://777.nd.com.cn/Group/?CliID=413"><span>首页</span></a></li><li><a href="http://777.nd.com.cn/Group/Circle/Members.aspx?CliID=413"><span>会员</span></a></li><li><a href="http://777.nd.com.cn/Group/Activity/?CliID=413"><span>活动</span></a></li><li><a href="http://777.nd.com.cn/Group/date/?CliID=413"><span>日程</span></a></li><li><a href="http://777.nd.com.cn/Group/BBS/?CliID=413"><span>论坛</span></a></li><li><a href="http://777.nd.com.cn/Group/stow/?CliID=413"><span>书架</span></a></li><li><a href="http://777.nd.com.cn/Group/storehouse/?CliID=413"><span>网盘</span></a></li><li><a href="http://777.nd.com.cn/Group/album/?CliID=413"><span>相册</span></a></li></ul></div></div>
+</div>
+        </div>
+        <div id="blogmiddle">
+            <div id="tbody">
+                <div id="BoardPath" style="text-align: center;"><table class="List2" style="width:98%;"><tbody><tr><td style="font-size:14px;"><a href="http://777.nd.com.cn/Group/BBS/Board.aspx?CliId=413&BoardId=3388" style="font-size:14px;">论坛首页</a> → <a href="http://777.nd.com.cn/Group/BBS/Board.aspx?CliId=413&BoardId=5962" style="font-size:14px;">联盟商家及福利</a></td></tr></tbody></table></div>
+                <div id="ErrorMsg">
+                </div>
+                <div id="VoteTable">
+                </div>
+                <div id="PostList"><table class="List2" style="width:98%;"><tbody><tr><td> <a href="javascript:;" style="color:red;">1</a></td><td style="text-align:right;">您是本贴第 <b>178</b> 个阅读者</td><td style="text-align:right;width:50px;"><a href="javascript:BBS.CopyToClipBoard('http://km.ndea.91.com/Group/BBS/Topic.aspx?CliId=413&BoardId=5962&TopicId=111515&PageNo=1');" style="color:red;" title="把这编文章的地址复制下来，发送给您朋友一起分享">复制地址</a></td></tr></tbody></table><table></table><table class="List2" style="width:98%;"><tbody><tr><td style="text-align:left;font-weight :bolder;font-size:14px;">标题：加油卡来啦！【入司驻点】</td></tr><tr><td style="text-align:right;"><a id="PreTopicLink" href="javascript:BBS.Topic.GetPreTopic(5962, 111515);">前一贴</a> <a id="NextTopicLink" href="javascript:BBS.Topic.GetNextTopic(5962, 111515);">后一贴</a></td></tr><tr><td style="text-align:right;"><a href="http://777.nd.com.cn/Group/BBS/Topic.aspx?action=Add&CliId=413&BoardId=5962" style="color:red;">发表主题</a> <span id="EditReplySpan"><a href="http://777.nd.com.cn/Group/BBS/Post.aspx?action=ShowEditReply&CliId=413&BoardId=5962&TopicId=111515#eWebEditorReply" style="color:red;">回复主题</a></span> <span id="AddStowSpan"><a href="javascript:BBS.Topic.ShowStowUI(413, 5962, 111515, 103103, '加油卡来啦！【入司驻点】','btn_addstow');">我要收藏</a></span> <span><a href="javascript:BBS.Topic.GetStowHistory("111515")">收藏记录</a></span>&nbsp;&nbsp;<span id="recommentTopic"><a href="javascript:BBS.RecommentTopic(event,'朱赋向你推荐一篇好帖子《加油卡来啦！【入司驻点】》','加油卡来啦！【入司驻点】');">我来推荐</a></span> </td></tr></tbody></table><table class="List2 List4" width="98%" border="0" style="border-color : ;"><tbody><tr><td width="20%" style="font-size:14px;"><b><span id="PostUser_387093">李裕婷[楼主]</span></b> <a href="http://km.ndea.91.com//blog/UserInfo/?u=16403" target="_blank"><img src="./加油卡来啦！【入司驻点】_files/user_woman.gif" alt="女同学" border="0"> </a><a href="http://km.ndea.91.com//ui/Load91U.aspx?uid=103103" target="_blank"><img src="./加油卡来啦！【入司驻点】_files/user_91u.gif" alt="通过91U与李裕婷联系" border="0"></a> <a href="http://km.ndea.91.com//blog/?u=16403" target="_blank"><img src="./加油卡来啦！【入司驻点】_files/user_bokee.gif" alt="访问李裕婷的书桌" border="0"></a> <br></td><td style="text-align:right;font-size:14px;padding-left: 10px;"><div style="text-align:left;float:left;font-size:10px;"><img src="./加油卡来啦！【入司驻点】_files/Post_time.gif" align="middle"> 2014-12-12 14:23:07</div><div style="text-align:right;"><a href="http://777.nd.com.cn/Group/BBS/Post.aspx?action=ShowEditQuote&CliId=413&BoardId=5962&TopicId=111515&PostId=387093">引用</a> </div></td></tr><tr><td width="20%" style="line-height:20px;vertical-align:top;border-bottom:0px;"><img src="./加油卡来啦！【入司驻点】_files/103103.jpg" width="80px" onload="javascript:if(this.width&gt;80)this.width=80" onerror="onerror=&#39;setDefaultImg(this)&#39;"><br>所在部门：<a href="http://km.ndea.91.com/Search/Result.aspx?Search=0&Type=5&KeyType=3&Key=%e7%ae%a1%e7%90%86%e4%b8%ad%e5%bf%83%e4%ba%ba%e5%8a%9b%e8%b5%84%e6%ba%90%e9%83%a8%e8%96%aa%e9%85%ac%e7%a6%8f%e5%88%a9%e5%a4%84" target="_blank" title="查看[管理中心人力资源部薪酬福利处]部门所有成员">管理中心人力资源部薪酬福利处</a><br>擅长：<br></td><td style="vertical-align:top;border-bottom:0px;padding-left: 20px;padding-right: 20px;"><br><span id="PostBody_387093" class="PostBody"><p><font style="FONT-FAMILY: 宋体"></font>&nbsp;</p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 福利强势来袭~加油卡7.5折优惠，绝无仅有，ND同学特享，错过不再有！</font></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong style="FONT-FAMILY: 宋体">时间：</strong>2014.12.15（下周一）中午12：00-13：30</font></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong style="FONT-FAMILY: 宋体">地点：</strong>缥缈庄餐厅门口</font></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="FONT-FAMILY: 宋体"> 优惠价目表：</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></p>
+<p>
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="120">
+<p align="center"><font style="FONT-FAMILY: 宋体">类别</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">原价（元）</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">折扣价（元）</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">优惠</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">返还期</font></p></td>
+<td valign="top" width="125">
+<p align="center"><font style="FONT-FAMILY: 宋体">返还金额（元/月）</font></p></td></tr>
+<tr>
+<td valign="top" width="120">
+<p align="center"><b><font style="FONT-FAMILY: 宋体">A</font></b></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">6000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">4500</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">25%</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">12个月</font></p></td>
+<td valign="top" width="125">
+<p align="center"><font style="FONT-FAMILY: 宋体">500</font></p></td></tr>
+<tr>
+<td valign="top" width="120">
+<p align="center"><b><font style="FONT-FAMILY: 宋体">B</font></b></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">12000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">9000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">25%</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">12个月</font></p></td>
+<td valign="top" width="125">
+<p align="center"><font style="FONT-FAMILY: 宋体">1000</font></p></td></tr>
+<tr>
+<td valign="top" width="120">
+<p align="center"><b><font style="FONT-FAMILY: 宋体">C</font></b></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">18000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">13500</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">25%</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">12个月</font></p></td>
+<td valign="top" width="125">
+<p align="center"><font style="FONT-FAMILY: 宋体">1500</font></p></td></tr>
+<tr>
+<td valign="top" width="120">
+<p align="center"><b><font style="FONT-FAMILY: 宋体">D</font></b></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">24000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">18000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">25%</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">12个月</font></p></td>
+<td valign="top" width="125">
+<p align="center"><font style="FONT-FAMILY: 宋体">2000</font></p></td></tr>
+<tr>
+<td valign="top" width="120">
+<p align="center"><b><font style="FONT-FAMILY: 宋体">E</font></b></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">30000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">22500</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">25%</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">12个月</font></p></td>
+<td valign="top" width="125">
+<p align="center"><font style="FONT-FAMILY: 宋体">2500</font></p></td></tr>
+<tr>
+<td valign="top" width="120">
+<p align="center"><b><font style="FONT-FAMILY: 宋体">F</font></b></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">36000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">27000</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">25%</font></p></td>
+<td valign="top" width="95">
+<p align="center"><font style="FONT-FAMILY: 宋体">12个月</font></p></td>
+<td valign="top" width="125">
+<p align="center"><font style="FONT-FAMILY: 宋体">3000 </font></p></td></tr></tbody></table></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;<strong style="FONT-FAMILY: 宋体">&nbsp;&nbsp; 优惠活动说明：</strong></font></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;1.本活动仅限私家车客户办理;</font></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;2.办理后3个工作日内返还首期油费;</font></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.第2期及之后油费于每月18日或次月3日激活使用（遇节假日顺延）;</font></p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.加油卡卡内金额不清零，可累计，<span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">并不限车辆，不限油品使用，全国通用。</span></font></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp; </font></span></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong style="FONT-FAMILY: 宋体">需提供的材料：</strong></font></span></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 车主身份证、车险保单复印件、行驶证、中石油或中石化加油卡</font></span></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体"></font></span>&nbsp;</p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp;<strong style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp; 注意事项：</strong></font></span></p>
+<p><font style="FONT-FAMILY: 宋体"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;1.<span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">油卡遗失<span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">应及时补办中石油或中石化加油卡（油卡无密码，<span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">遗失易造成的油费损失哦~</span>），并以书面告知</span></span></span><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA">新的加油卡号，以便重新延续充值。（潘经理：13799307655）</span></span></font></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.员工可替家属代办油卡，提供相应的材料即可（ 工牌、车主身份证、车险保单复印件、行驶证、中石油或中石化加油卡）</font></span></span></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.优惠活动仅限<strong style="FONT-FAMILY: 宋体">2014.12.15中午12：:00--13:30</strong>此时间段~错过不再有哦~</font></span></span></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体"></font></span></span>&nbsp;</p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ND的同学们~12月15日，我们不见不散哦~<img style="FONT-FAMILY: " src="./加油卡来啦！【入司驻点】_files/23.gif"></font></span></span></p>
+<p><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><span style="FONT-FAMILY: 宋体; FONT-SIZE: 9pt; mso-ascii-font-family: &#39;Times New Roman&#39;; mso-hansi-font-family: &#39;Times New Roman&#39;; mso-font-kerning: 1.0pt; mso-bidi-font-family: &#39;Times New Roman&#39;; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN; mso-bidi-language: AR-SA"><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;</font></span></span></p>
+<p><font style="FONT-FAMILY: 宋体"></font>&nbsp;</p>
+<p><font style="FONT-FAMILY: 宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></p>
+<p><font style="FONT-FAMILY: 宋体"></font>&nbsp;</p></span><span id="PostBodyUBB_387093" style="display:none;"></span></td></tr><tr><td></td><td><div style="text-align:right;font-style:italic;">李裕婷在2014-12-12 14:33:27编辑过此贴</div><hr width="60%" color="#e2e2e2" size="1"><div></div></td></tr></tbody></table><table class="List2" style="width:98%;"><tbody><tr><td> <a href="javascript:;" style="color:red;">1</a></td><td style="text-align:right;">您是本贴第 <b>178</b> 个阅读者</td><td style="text-align:right;width:50px;"><a href="javascript:BBS.CopyToClipBoard('http://km.ndea.91.com/Group/BBS/Topic.aspx?CliId=413&BoardId=5962&TopicId=111515&PageNo=1');" style="color:red;" title="把这编文章的地址复制下来，发送给您朋友一起分享">复制地址</a></td></tr></tbody></table><span id="VoteIdSpan" style="display: none; height: 0;">0</span><div id="NewPost" style="width: 98%">
+                    </div><table>
+                
+                </table><table width="98%" class="List2 List4">
+                        <tbody><tr>
+                            <td>
+                                <div id="NewPostSystemMessage" style="text-align: left;">
+                                    <b>快速回复：</b></div>
+                            </td>
+                            <td>
+                                <div id="NewPostLink" style="text-align: right; padding-right: 10px;"><a href="http://777.nd.com.cn/Group/BBS/Post.aspx?action=ShowEditReply&CliId=413&BoardId=5962&TopicId=111515#eWebEditorReply" style="color:red;">回复主题</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="vertical-align: top;">
+                                回复小贴士：<br>
+                                ① 在右侧文本框中，只能输入简单的文本。<br>
+                                ② 如您需要详细回复，请您点击本帖标题栏右侧的“回复主题”进入回复主题页面编辑回复信息。<br>
+                                
+                                
+                                
+                            </td>
+                            <td style="text-align: center;">
+                                <div id="postSendListTd" style="text-align: left;">
+                                    <div id="PostSendLists" style=" vertical-align:top;">&nbsp;<img src="./加油卡来啦！【入司驻点】_files/bullet_wrench.png"><a href="javascript:addFeedback(111515,185320)" title="回帖后通知我" style="color:red">回帖后通知我</a><br></div>
+                                </div>
+                                <div style="text-align: left; cursor: pointer;">
+                                    <table>
+                                        <tbody><tr>
+                                            <td style="border-bottom-width: 0px; border-right-width: 0px">
+                                                是否要追加消息提醒人：
+                                                <input id="postInfoNo" type="radio" name="postInfoOption" value="0" checked="checked" onclick="BBS.Topic.FeedBackOptionChange();"><label for="postInfoNo">不追加</label>
+                                                <input id="postInfoNo91u" type="radio" name="postInfoOption" value="2" onclick="BBS.Topic.FeedBackOptionChange();"><label for="postInfoNo91u">追加</label>
+                                                <input id="postInfoNokm" type="radio" name="postInfoOption" value="1" onclick="BBS.Topic.FeedBackOptionChange();" style="display: none"><label for="postInfoNokm" style="display: none">KM消息通知</label>
+                                                <input name="postInfoNames" type="text" id="postInfoNames" readonly="readonly" style="display: none">
+                                            </td>
+                                            <td style="border-bottom-width: 0px; border-right-width: 0px">
+                                                <div id="divSelectPeo" style="display:none"><div class="ndea_selector_selectedUserList " style="width:180px;"><div style="float:left" class="ndea_selector_selectedUserList_left"><div class="txtKeyWordOuter"><iframe class="txtKeyWordListBack"></iframe><div class="txtKeyWordList">输入员工姓名(支持全拼输入)</div><input type="text" class="txtKeyWord" onfocus="this.select()"></div><div style="clear:both"></div></div><div class="btnShowAll"><div class="relative"><div class="btnShowAllBtn" title="显示列表">&nbsp;<input type="text" style="display:none"></div><div class="btnRemoveAllBtn" title="清空">&nbsp;</div><iframe class="iframeDivBack" style="right:-405px"></iframe><div class="iframeDiv" style="right:-405px"><div class="iframeDivIn"><div style="width: 300px; display: none;" class="typeMenu"><span class="active">按部门选人</span> <span>经常选择的人</span> <span>最近选择的人</span></div><div class="listBox"><div class="divSearchDepartment" id="divSelectPeo_d"></div><div class="divUserListOuter">   <div class="divUserList">      <div class="infotip">      </div>   </div></div></div><div class="listBox" style="display:none;"><div class="divUserListOuter">   <div class="divUserList" style="height:210px">      <div class="divInfoList">      </div>   </div></div></div><div class="listBox" style="display:none;"><div class="divUserListOuter">   <div class="divUserList" style="height:210px">      <div class="divInfoList">      </div>   </div></div></div><div class="bottomBtnList"><input type="button" value="全选" class="btn" style="float:left"><input type="button" value="全否" class="btn" style="left:58px"> <span class="totalSelectNumTip"></span><input type="button" value="确定" class="btn" style="right:18px"></div></div></div></div></div><div style="clear:both"></div></div></div>
+                                                <input name="postInfoIds" type="text" id="postInfoIds" readonly="readonly" style="display: none;">
+                                                <input id="Button1" class="btn" type="button" value="选择人员" onclick="BBS.Topic.SelectPerson(&#39;postInfoNames&#39;, &#39;postInfoIds&#39;);" style="display: none">
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+                                <form id="frm_gbook" name="frm_gbook" action="javascript:BBS.AddPost();" method="post" style="text-align: center" onkeydown="BBS.CtrlEnter();">
+                                <textarea name="PostBody" id="PostBody" style="width: 100%; height: 100px;"></textarea><br>
+                                <input type="submit" id="_sbt" name="_sbt" class="btn" value="确认提交">
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+                
+                <span id="FileNumber" style="display: none">0</span> <span id="FileNumberMax" style="display: none">
+                    1</span>
+            </div>
+        </div>
+        <div id="bottom">
+            <a href="http://777.nd.com.cn/Group/BBS/Topic.aspx?CliId=413&BoardId=5962&TopicId=111515&PageNo=1#bottom"></a>
+        </div>
+        <div id="blogdown">
+            
+<div id="footer">
+		<span id="footer_1">(©)2006-2010  NDKM, All Rights Reserved</span>
+		<span id="footer_2">关于NDKM · 隐私原则</span>
+</div>
+        </div>
+    </div>
+
+
+</body></html>
