@@ -1,0 +1,81 @@
+
+body{margin:0px; background-image:url(../images/bg.gif); background-position:top; background-repeat:no-repeat; font-size:12px; color:#000000; height:100%;}
+html{height:100%;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1{font-size:16px; margin-top:5px; color:#30587E;}
+.top_nav{width:1002px; height:152px; margin:0 auto;}
+  .top_nav_1{width:1002px; height:61px; background-image:url(../images/newspage_02_20140611.png); background-repeat:no-repeat; background-position:top;}
+    .top_nav_banner{ width:450px; height:30px; background-image:url(../images/nav_05.gif); background-repeat:no-repeat; margin-top:30px; margin-right:0px; float:right; text-align: right; }
+	.top_nav_banner_txt{ margin-right:10px;line-height:31px; height:30px; color:#30587E; margin-left:20px; width:407px;}
+  .top_nav_2{width:1002px; height:106px; background-image:url(../images/newspage_04_2.gif); background-repeat:no-repeat; background-position:top;}
+    .top_nav_2_weather{float:left; width:180px; height:51px; margin-left:20px; padding-top:23px; padding-left:10px;}
+	.top_nav_2_txt{float:left; margin-left:0px; width:736px; height:101px;color:#071534; padding-left:10px;line-height:19px;margin:2px 0 0 0;}
+	.top_nav_2_txt  a{font-size:12px;text-align:center;line-height:22px;text-decoration:none; color:#071534;}
+	.top_nav_2_txt a:hover{text-decoration:underline;}
+	
+.center{width:1002px; margin:auto;margin-top:10px; ffmargin:10px auto;_margin:-6px auto; background:url(../images/bg2.gif) repeat-y;}
+
+  .center_left{ width:230px; float: left;background-image:url(../images/newspage_9.gif); background-repeat:repeat-y;}
+    .center_left_top{width:230px; height:71px; background-image:url(../images/newspage_07.gif); background-repeat:no-repeat;}
+    .center_left_con{ width:230px;}
+	#newsList{width:180px; margin-left:40px;line-height:24px; font-size:14px; font-weight:bold;color:#31718F;}
+	#newsList a,#newsList a:visited{color:#31718F; text-decoration:none; font-size:12px; font-weight:normal; margin-left:40px; width:180px;}
+	#newsList a:hover{color: #FF9900; text-decoration: underline; font-size:12px; font-weight:normal; margin-left:40px; width:180px;}
+	.center_left_top a{ margin-left:50px; font-size:14px; line-height:91px; color:#000000; text-decoration:none; font-weight:bold;}
+	.center_left_top a:hover{text-decoration:underline;}
+  .center_right{width:772px; float: left;background-image:url(../images/newspage_11.gif); background-repeat:repeat-y; height:100%}
+    .center_right_top{width:772px; height:34px;background-image:url(../images/newspage_08.gif); background-repeat:no-repeat;}
+	.center_right_con{width:772px;background-image:url(../images/newspage_11.gif); background-repeat:repeat-y; color:#30587E;overflow-x:hidden;_width:752px;_padding:0 0 0 20px;}
+	.newsSearch{text-align:right; width:700px;}
+	.newsArticle table{width:700px; margin:5px auto; line-height:22px; color:#30587E;}
+	.newsArticle table a,.newsArticle table a:visited{color:#30587E;}
+	.newsArticle{width:710px; margin:0px auto;}
+	.center_right_con p{ margin:3px auto; line-height:22px; color:#30587E;}
+	.heade{margin:0px auto; text-align:center;}
+.bottom{ width:1002px; margin:0 auto;}
+.bottom_left{width:230px; background-image:url(../images/newspage_13.gif); background-repeat:no-repeat; height:72px; float:left;}
+.bottom_right{width:772px; background-image:url(../images/newspage_14.gif); background-repeat:no-repeat; height:82px; float:left;}
+  .comment,.page{width:670px; margin:5px auto;}
+  #newsComment,#creatNewsComment{width:670px; margin:5px auto;}
+
+/*nav*/
+li {list-style:none;}
+#nav {
+	width:750px;
+	margin:0 auto;
+	text-align:left;
+	height:106px;
+	overflow:hidden;
+	margin:5px 0 0 0;
+	}
+#category {
+	float:left;
+	width:750px;
+	padding:0 5px;
+	height:106px;
+	}
+#category ul li {
+	padding-left:10px;
+	/*margin:2px 5px;*/
+	line-height:19px !important;
+	height:20px;
+	min-height:18px;
+	ffbackground:url(http://km.ndea.91.com/home/images/081021/blue/arrow1.gif) 0 4px no-repeat;
+	}
+#category ul li .fB {
+	color:#00335d;
+	font-size:13px;
+	font-weight:bold;
+	}
+#category ul li a {
+	padding:2px 5px !important;
+	color:#30587E;
+	}
+#category ul li a:hover {
+	color:#E17100;
+	ffbackground:#00335d;
+	}
+	
+/* CSS Document */
+
